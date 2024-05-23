@@ -25,6 +25,18 @@ w_values = [i / 10 for i in range(int(w * 10), int(2 * w * 10) + 1)]  # Rango de
 Fc_metal_values = [Fc_metal for w in w_values]
 plt.plot(w_values, Fc_metal_values, label="Fuerza Centrípeta (Metal)")
 
+fig, ax = plt.subplots()
+fig.subplots_adjust(left=0.25, bottom=0.25)
+
+Rc = fig.add_axes([0.25, 0.1, 0.65, 0.03])
+freq_slider = Slider(
+    ax=Rc,
+    label='Frequency [Hz]',
+    valmin=0.5,
+    valmax=10,
+    valinit=R
+)
+
 # Graficar fuerza centrípeta para superficie de plástico
 Fc_plastico_values = [Fc_plastico for w in w_values]
 plt.plot(w_values, Fc_plastico_values, label="Fuerza Centrípeta (Plástico)")
